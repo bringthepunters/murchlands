@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { MapPin, Users, Clock } from 'lucide-react';
+import { MapPin, Users, Clock, UserCircle } from 'lucide-react';
 import { Timeline } from './components/Timeline';
 import { MapView } from './components/MapView';
+import { MurchlandGrid } from './components/MurchlandGrid';
 import { AddMomentForm } from './components/forms/AddMomentForm';
 import { AddMurchlandForm } from './components/forms/AddMurchlandForm';
 import { useMomentStore } from './store/momentStore';
 import { useMurchlandStore } from './store/murchlandStore';
 
-type Tab = 'timeline' | 'map' | 'add';
+type Tab = 'timeline' | 'map' | 'murchlands' | 'add';
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('timeline');
@@ -52,6 +53,17 @@ function App() {
               <span>Map</span>
             </button>
             <button
+              onClick={() => setActiveTab('murchlands')}
+              className={`px-3 py-2 rounded-md ${
+                activeTab === 'murchlands'
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'text-gray-500 hover:text-gray-700'
+              } flex items-center space-x-2`}
+            >
+              <UserCircle className="w-5 h-5" />
+              <span>Murchlands</span>
+            </button>
+            <button
               onClick={() => setActiveTab('add')}
               className={`px-3 py-2 rounded-md ${
                 activeTab === 'add'
@@ -76,6 +88,8 @@ function App() {
             onMomentSelect={setSelectedMoment}
           />
         )}
+
+        {activeTab === 'murchlands' && <MurchlandGrid />}
         
         {activeTab === 'add' && (
           <div className="bg-white rounded-lg shadow-lg p-6">

@@ -1,0 +1,33 @@
+{
+  "murchlands": {
+    "robert-murchland-1828": {
+      "id": "robert-murchland-1828",
+      "name": "Robert Murchland",
+      "birthDate": {
+        "year": 1828,
+        "month": 2,
+        "day": 25
+      },
+      "birthPlace": {
+        "name": "Stevenston",
+        "country": "Scotland",
+        "coordinates": {
+          "lat": 55.6418,
+          "lng": -4.7604
+        }
+      },
+      "deathDate": {
+        "year": 1875
+      },
+      "deathPlace": {
+        "name": "Bourke",
+        "country": "Australia",
+        "coordinates": {
+          "lat": -30.0888,
+          "lng": 145.9378
+        }
+      },
+      "description": "Born in Stevenston, Ayrshire, Scotland. Immigrated to Australia in 1854 on the Dirigo. Married Jane Gray in Rich Avon West, Victoria in 1863."
+    }
+  }
+}

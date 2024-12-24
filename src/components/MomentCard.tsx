@@ -1,6 +1,9 @@
 import React from 'react';
-import { Calendar, MapPin, Link as LinkIcon } from 'lucide-react';
+import { Calendar, Link as LinkIcon } from 'lucide-react';
 import { Moment } from '../types';
+import { formatPartialDate } from '../types/dates';
+import { MurchlandList } from './MurchlandList';
+import { LocationLink } from './LocationLink';
 
 interface MomentCardProps {
   moment: Moment;
@@ -13,7 +16,7 @@ export function MomentCard({ moment }: MomentCardProps) {
         <div className="relative h-64 overflow-hidden">
           <img
             src={moment.images[0]}
-            alt={`Moment from ${moment.date.toLocaleDateString()}`}
+            alt={`Moment from ${formatPartialDate(moment.date)}`}
             className="w-full h-full object-cover"
           />
         </div>
@@ -22,24 +25,13 @@ export function MomentCard({ moment }: MomentCardProps) {
       <div className="p-6">
         <div className="flex items-center gap-2 text-gray-600 mb-4">
           <Calendar className="w-4 h-4" />
-          <span>{moment.date.toLocaleDateString()}</span>
-          <MapPin className="w-4 h-4 ml-4" />
-          <span>{moment.location.name}</span>
+          <span>{formatPartialDate(moment.date)}</span>
+          <LocationLink location={moment.location} />
         </div>
 
         <div className="mb-4">
           <h3 className="text-lg font-semibold mb-2">People Present:</h3>
-          <div className="flex flex-wrap gap-2">
-            {moment.murchlands.map((person, index) => (
-              <span
-                key={index}
-                className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
-                title={person.aka ? `Also known as: ${person.aka}` : undefined}
-              >
-                {person.name}
-              </span>
-            ))}
-          </div>
+          <MurchlandList murchlandIds={moment.murchlands} />
         </div>
 
         <div className="prose prose-sm max-w-none mb-4">

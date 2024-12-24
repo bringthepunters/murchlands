@@ -1,0 +1,31 @@
+{
+  "moments": {
+    "dirigo-arrival-1854": {
+      "id": "dirigo-arrival-1854",
+      "date": {
+        "year": 1854,
+        "month": 11,
+        "day": 21
+      },
+      "location": {
+        "name": "Port Adelaide",
+        "country": "Australia",
+        "coordinates": {
+          "lat": -34.8443,
+          "lng": 138.5054
+        }
+      },
+      "murchlands": ["robert-murchland-1828"],
+      "text": "Jane Gray and Robert Murchland finally dock in Port Adelaide. Their ship, the Dirigo originally sailed from Birkenhead 6th July 1854 with 518 passengers and 51 crew members, but returned to Liverpool due to an outbreak of cholera. A total of 57 people died. Jane Gray helped to nurse the sick.\n\nShe then finally set sail on the 8th August and arrived in Adelaide with 482 immigrants on board. The Dirigo was built in Moncton, New Brunswick in Canada and completed in 1854. She was a 1282 ton vessel.",
+      "links": [
+        {
+          "label": "The Dirigo",
+          "url": "https://www.wikitree.com/wiki/Space:Dirigo_(Ship_1854)",
+          "description": "Information about the ship Dirigo and its 1854 voyage to Australia"
+        }
+      ],
+      "images": [],
+      "historicalContext": "The 1850s saw significant immigration to Australia, with many ships bringing settlers from the British Isles. The journey was often perilous, with disease being a common threat to passengers."
+    }
+  }
+}

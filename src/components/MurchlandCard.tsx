@@ -1,7 +1,8 @@
 import React from 'react';
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Murchland } from '../types';
 import { PartialDateDisplay } from './dates/PartialDateDisplay';
+import { LocationLink } from './LocationLink';
 
 interface MurchlandCardProps {
   murchland: Murchland;
@@ -39,10 +40,7 @@ export function MurchlandCard({ murchland, onClick }: MurchlandCardProps) {
               <PartialDateDisplay date={murchland.birthDate} />
             )}</span>
             {murchland.birthPlace && (
-              <>
-                <MapPin className="w-4 h-4 ml-2" />
-                <span>{murchland.birthPlace.name}, {murchland.birthPlace.country}</span>
-              </>
+              <LocationLink location={murchland.birthPlace} />
             )}
           </div>
         )}
@@ -54,10 +52,7 @@ export function MurchlandCard({ murchland, onClick }: MurchlandCardProps) {
               <PartialDateDisplay date={murchland.deathDate} />
             )}</span>
             {murchland.deathPlace && (
-              <>
-                <MapPin className="w-4 h-4 ml-2" />
-                <span>{murchland.deathPlace.name}, {murchland.deathPlace.country}</span>
-              </>
+              <LocationLink location={murchland.deathPlace} />
             )}
           </div>
         )}

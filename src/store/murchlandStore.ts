@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { Murchland } from '../types';
+import { storage } from '../utils/storage';
 
 interface MurchlandStore {
   murchlands: Record<string, Murchland>;
@@ -10,12 +11,16 @@ interface MurchlandStore {
 }
 
 export const useMurchlandStore = create<MurchlandStore>((set, get) => ({
-  murchlands: {},
+  murchlands: storage.getMurchlands(),
   selectedMurchlandId: null,
   setSelectedMurchland: (id) => set({ selectedMurchlandId: id }),
-  addMurchland: (murchland) => 
-    set((state) => ({
-      murchlands: { ...state.murchlands, [murchland.id]: murchland }
-    })),
+  addMurchland: (murchland) => {
+    const newMurchlands = { 
+      ...get().murchlands, 
+      [murchland.id]: murchland 
+    };
+    storage.saveMurchlands(newMurchlands);
+    set({ murchlands: newMurchlands });
+  },
   getMurchland: (id) => get().murchlands[id],
 }));
